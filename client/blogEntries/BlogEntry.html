@@ -1,9 +1,14 @@
 <template name="BlogEntry">
 		<article class="blogEntry">
 			<h3>{{title}}</h3>
-			<p>{{desc}}</p>
-			<a href="/blogEntry/{{_id}}">View Details</a>
+			{{#if $.Session.get 'editMode'}}
+				{{> quickForm collection="BlogEntries" id=updateBlogEntryId type="update" doc=this}}
+			{{else}}
+				<p>{{desc}}</p>
+				<a href="/blogEntry/{{_id}}">View Details</a>
+			{{/if}}
+			<i class="fa fa-pencil"></i>
+			<i class="fa fa-trash"></i>
 
-			{{> quickForm collection="BlogEntries" id=updateBlogEntryId type="update" doc=this}}
 		</article>
 </template>

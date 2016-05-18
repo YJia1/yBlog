@@ -38,4 +38,10 @@ BlogEntriesSchema = new SimpleSchema({
 	}
 });
 
+Meteor.methods({
+	deleteBlogEntry: function(id) {
+		BlogEntries.remove(id);
+	}
+});
+
 BlogEntries.attachSchema(BlogEntriesSchema);
