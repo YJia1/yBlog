@@ -3,6 +3,9 @@ BlogEntries = new Mongo.Collection('blogEntries');
 BlogEntries.allow({
 	insert: function(userId, doc) {
 		return !!userId;
+	},
+	update: function(userId, doc) {
+		return !!userId;
 	}
 });
 

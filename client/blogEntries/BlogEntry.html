@@ -1,0 +1,9 @@
+<template name="BlogEntry">
+		<article class="blogEntry">
+			<h3>{{title}}</h3>
+			<p>{{desc}}</p>
+			<a href="/blogEntry/{{_id}}">View Details</a>
+
+			{{> quickForm collection="BlogEntries" id=updateBlogEntryId type="update" doc=this}}
+		</article>
+</template>

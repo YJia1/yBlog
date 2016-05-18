@@ -1,3 +1,10 @@
 <template name="BlogEntries">
 	{{> NewBlogEntry}}
+	<section class="blogEntries">
+	{{#if Template.subscriptionsReady}}
+		{{#each blogEntries}}
+			{{> BlogEntry}}
+		{{/each}}
+	{{/if}}
+	</section>
 </template>
