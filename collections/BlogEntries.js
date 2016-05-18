@@ -1,5 +1,11 @@
 BlogEntries = new Mongo.Collection('blogEntries');
 
+BlogEntries.allow({
+	insert: function(userId, doc) {
+		return !!userId;
+	}
+});
+
 BlogEntriesSchema = new SimpleSchema({
 	title: {
 		type: String,
