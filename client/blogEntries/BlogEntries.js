@@ -8,5 +8,14 @@ Template.BlogEntries.onCreated(function(){
 Template.BlogEntries.helpers({
 	blogEntries: ()=> {
 		return BlogEntries.find({});
+	}});
+
+Template.BlogEntries.events({
+	'click .newBlogEntry': () => {
+		Session.set('newBlogEntry', true);
 	}
-})
+});
+
+Accounts.ui.config({
+	passwordSignupFields: "USERNAME_ONLY"
+});

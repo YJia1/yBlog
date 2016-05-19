@@ -1,5 +1,13 @@
 <template name="BlogEntries">
-	{{> NewBlogEntry}}
+	{{#if currentUser}}
+		{{#if $.Session.get 'newBlogEntry'}}
+		
+			{{> NewBlogEntry}}
+		
+		{{else}}
+			<button class="newBlogEntry">New Blog Entry</button>
+		{{/if}}
+	{{/if}}
 	<section class="blogEntries">
 	{{#if Template.subscriptionsReady}}
 		{{#each blogEntries}}

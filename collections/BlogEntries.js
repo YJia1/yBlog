@@ -25,8 +25,10 @@ BlogEntriesSchema = new SimpleSchema({
 		label: "Created At",
 		autoValue: function() {
 			return new Date()
+		},
+		autoform: {
+			type: "hidden"
 		}
-
 	},
 
 	user: {
@@ -34,6 +36,9 @@ BlogEntriesSchema = new SimpleSchema({
 		label: "User",
 		autoValue: function() {
 			return this.userId
+		},
+		autoform: {
+			type: "hidden"
 		}
 	}
 });
