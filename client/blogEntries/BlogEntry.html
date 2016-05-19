@@ -5,7 +5,8 @@
 				{{> quickForm collection="BlogEntries" id=updateBlogEntryId type="update" doc=this}}
 			{{else}}
 				<p>{{desc}}</p>
-				<a href="/blogEntry/{{_id}}">View Details</a>
+				<p>{{displayUsername}}</p>
+				<p>{{createdAt}}</p>
 			{{/if}}
 			<i class="fa fa-pencil"></i>
 			<i class="fa fa-trash"></i>

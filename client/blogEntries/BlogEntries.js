@@ -2,13 +2,15 @@ Template.BlogEntries.onCreated(function(){
 	var self = this;
 	self.autorun(function(){
 		self.subscribe('blogEntries');
+		self.subscribe('userList');
 	});
 });
 
 Template.BlogEntries.helpers({
 	blogEntries: ()=> {
 		return BlogEntries.find({});
-	}});
+	}
+});
 
 Template.BlogEntries.events({
 	'click .newBlogEntry': () => {

@@ -9,14 +9,18 @@ Template.BlogEntry.helpers({
 	editMode: function(){
 		return Template.instance().editMode.get();
 	},
-	isOwner: function(){
-		return this.owner === Meteor.userId();
+	displayUsername: function(){
+		var user = Meteor.users.findOne(this.user);
+		var username = user.username;
+		//return Meteor.user().username;
+		return username;
 	}
 });
 
 Template.BlogEntry.events({
 	//Delete blog entry for current user when clicking on delete icon
 	'click .fa-trash': function(){
+		console.log(Meteor.user().username);
 		if(Meteor.userId()==this.user){
 			Meteor.call('deleteBlogEntry', this._id);
 		}
