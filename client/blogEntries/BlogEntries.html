@@ -1,9 +1,7 @@
 <template name="BlogEntries">
 	{{#if currentUser}}
 		{{#if $.Session.get 'newBlogEntry'}}
-		
 			{{> NewBlogEntry}}
-		
 		{{else}}
 			<button class="newBlogEntry">New Blog Entry</button>
 		{{/if}}
