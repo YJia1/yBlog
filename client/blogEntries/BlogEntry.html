@@ -5,10 +5,12 @@
 				{{> quickForm collection="BlogEntries" id=updateBlogEntryId type="update" doc=this}}
 			{{else}}
 				<p>{{desc}}</p>
-				<p>{{displayUsername}}</p>
-				<p>{{createdAt}}</p>
+				<p>Author: {{displayUsername}}</p>
+				<p class="date">{{createdAt}}</p>
 			{{/if}}
-			<i class="fa fa-pencil"></i>
-			<i class="fa fa-trash"></i>
+			{{#if isAuthorized}}
+				<i class="fa fa-pencil"></i>
+				<i class="fa fa-trash"></i>
+			{{/if}}
 		</article>
 </template>

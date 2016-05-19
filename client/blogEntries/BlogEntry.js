@@ -12,15 +12,16 @@ Template.BlogEntry.helpers({
 	displayUsername: function(){
 		var user = Meteor.users.findOne(this.user);
 		var username = user.username;
-		//return Meteor.user().username;
 		return username;
+	},
+	isAuthorized: function(){
+		return Meteor.userId()==this.user;
 	}
 });
 
 Template.BlogEntry.events({
 	//Delete blog entry for current user when clicking on delete icon
 	'click .fa-trash': function(){
-		console.log(Meteor.user().username);
 		if(Meteor.userId()==this.user){
 			Meteor.call('deleteBlogEntry', this._id);
 		}
