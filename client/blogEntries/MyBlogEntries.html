@@ -1,0 +1,18 @@
+<template name="MyBlogEntries">
+	{{#if currentUser}}
+		{{#if $.Session.get 'newBlogEntry'}}
+			{{> NewBlogEntry}}
+		{{else}}
+			<button class="newBlogEntry">New Blog Entry</button>
+		{{/if}}
+		<section class="blogEntries">
+			{{#if Template.subscriptionsReady}}
+				{{#each BlogEntries}}
+					{{> BlogEntry}}
+				{{/each}}
+			{{/if}}
+		</section>
+	{{else}}
+		<h2>Please Log in or Sign up first!</h2>
+	{{/if}}
+</template>
